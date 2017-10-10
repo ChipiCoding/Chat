@@ -26,6 +26,7 @@ namespace Open
             mPublisher.SetPublisherListener(this);
 
             mPublisherViewContainer.AddView(mPublisher.View);
+            p0.Publish(mPublisher);
             mSession.Publish(mPublisher);
         }
 
@@ -77,10 +78,12 @@ namespace Open
         {
             base.OnCreate(bundle);
 
+            SetContentView(Resource.Layout.activity_main);
+
             mPublisherViewContainer = (FrameLayout)FindViewById(Resource.Id.publisher_container);
             mSubscriberViewContainer = (FrameLayout)FindViewById(Resource.Id.subscriber_container);
 
-            SetContentView(Resource.Layout.activity_main);
+            
             IniciarSession();
         }
 
